@@ -1,11 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Spacer, Tabs, Tab, Input } from "@nextui-org/react";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import NumberOneSVG from "../../../assets/numberOne.svg";
 import LineSVG from "../../../assets/line.svg";
 import NumberTwoSVG from "../../../assets/numberTwo.svg";
+import "./Campaign.css"
 
 const CampaignSettings = () => {
+
+  const [sliderValues, setSliderValues] = useState({
+    slider1: 3,
+    slider2: 10,
+   
+  });
+
+  const [showSliderValue1, setShowSliderValue1] = useState(false);
+  const [showSliderValue2, setShowSliderValue2] = useState(false);
+
+  const handleSliderChange = (sliderName, value) => {
+    setSliderValues({
+      ...sliderValues,
+      [sliderName]: value,
+    });
+
+    if (sliderName === "slider1") {
+      setShowSliderValue1(true);
+    } else if (sliderName === "slider2") {
+      setShowSliderValue2(true);
+    }
+  }
+
+  useEffect(() => {
+    let timer1, timer2;
+
+    if (showSliderValue1) {
+      timer1 = setTimeout(() => {
+        setShowSliderValue1(false);
+      }, 1000);
+    }
+
+    if (showSliderValue2) {
+      timer2 = setTimeout(() => {
+        setShowSliderValue2(false);
+      }, 1000);
+    }
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, [showSliderValue1, showSliderValue2]);
   return (
     <div>
       <div className="flex flex-row border-b-1 pb-2">
@@ -72,7 +116,16 @@ const CampaignSettings = () => {
             <span className="text-xs text-slate-500 font-semibold">
               Enter Campaign budget
             </span>
-            <input type="range" />
+            <input type="range"
+             min={100}
+             max={100000}
+             value={sliderValues.slider1} 
+
+             onChange={(e) => handleSliderChange("slider1", parseInt(e.target.value, 10))}
+            />
+             {showSliderValue1 && (
+         <div className="slider">{sliderValues.slider1}</div>
+      )}
             </div>
           </div>
         </div>
@@ -119,11 +172,29 @@ const CampaignSettings = () => {
             <span className="text-xs text-slate-500 font-semibold">
               Select target radius
             </span>
-            <input type="range" />
+            <input
+        type="range"
+        min={1}
+        max={30}
+        value={sliderValues.slider2} 
+
+        onChange={(e) => handleSliderChange("slider2", parseInt(e.target.value, 10))}
+      />
+       
           </div>
         </div>
       </div>
+      <div className="flex justify-between">
+      <p className="mx-5 relative bottom-5 left-3">1</p>
+      <p className="mx-5 relative bottom-5 right-3">30</p>
+      </div>
+     
+    
+      {showSliderValue2 && (
+         <div className="slider">{sliderValues.slider2}</div>
+      )}
     </div>
+    
   );
 };
 

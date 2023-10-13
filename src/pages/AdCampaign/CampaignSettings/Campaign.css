@@ -1,0 +1,12 @@
+.slider{
+width: 68px;
+height: 25px;
+color: white;
+background: #000000;
+border-radius: 4.99999px;
+position: relative;
+justify-content: center;
+text-align: center;
+margin: 0 auto;
+margin-top: -30px;
+}
