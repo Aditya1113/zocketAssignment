@@ -1,4 +1,9 @@
-import React from "react";
+
+
+import facebook from "../../../assets/facebook.svg"
+import youtube from  "../../../assets/youtube.svg"
+import google from  "../../../assets/google.svg"
+
 const columns = [
   { name: "ID", uid: "id", sortable: true },
   { name: "ON/OFF", uid: "on/off" },
@@ -29,7 +34,7 @@ const users = [
     location: "Chennai",
     clicks: 300,
     budget: "NR 3400",
-    platform:'src/assets/facebook.svg'
+    platform:facebook
   },
   {
     id: 2,
@@ -41,8 +46,7 @@ const users = [
     location: "Chennai",
     clicks: 345,
     budget: "NR 3400",
-    platform:
-    'src/assets/facebook.svg'
+    platform:facebook
   },
   {
     id: 3,
@@ -54,8 +58,7 @@ const users = [
     location: "Chennai",
     clicks: 300,
     budget: "NR 3400",
-    platform:
-    'src/assets/facebook.svg'
+    platform:facebook
   },
   {
     id: 4,
@@ -67,8 +70,7 @@ const users = [
     location: "Chennai",
     clicks: 300,
     budget: "NR 3400",
-    platform:
-    'src/assets/youtube.svg'
+    platform:youtube
   },
   {
     id: 5,
@@ -80,8 +82,7 @@ const users = [
     location: "Chennai",
     clicks: 300,
     budget: "NR 3400",
-    platform:
-     "src/assets/google.svg"
+    platform:google
   },
   {
     id: 6,

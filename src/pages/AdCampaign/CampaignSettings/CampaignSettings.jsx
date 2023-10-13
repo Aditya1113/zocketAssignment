@@ -1,6 +1,9 @@
 import React from "react";
 import { Spacer, Tabs, Tab, Input } from "@nextui-org/react";
 import { MapPinIcon } from "@heroicons/react/24/outline";
+import NumberOneSVG from "../../../assets/numberOne.svg";
+import LineSVG from "../../../assets/line.svg";
+import NumberTwoSVG from "../../../assets/numberTwo.svg";
 
 const CampaignSettings = () => {
   return (
@@ -11,7 +14,7 @@ const CampaignSettings = () => {
       </div>
       <Spacer y={4} />
       <div className="relative top-11">
-      <img src = "src/assets/numberOne.svg"/>
+      <img src = {NumberOneSVG}/>
       </div>
 
       
@@ -19,7 +22,7 @@ const CampaignSettings = () => {
       <div className="w-full py-4 px-8">
         <div className="flex">
           <div className="relative right-5 top-8">
-        <img src = "src/assets/line.svg"/>
+        <img src = {LineSVG}/>
         </div>
         <div>
           <h3 className="font-bold underline mx-0">Budget and dates info</h3>
@@ -78,7 +81,7 @@ const CampaignSettings = () => {
       
         <div className="mt-8">
           <div className="flex ">
-          <img src = "src/assets/numberTwo.svg" className="relative right-8 bottom-1"/>
+          <img src = {NumberTwoSVG} className="relative right-8 bottom-1"/>
           <h3 className="font-bold underline relative right-5">Location Info</h3>
           </div>
          
